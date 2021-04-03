@@ -1,8 +1,8 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
-import time
 from scoreboard import Scoreboard
+import time
 
 screen = Screen()
 screen.bgcolor('black')
