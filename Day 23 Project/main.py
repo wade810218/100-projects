@@ -8,7 +8,20 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
+player = Player()
+car_manager = CarManager()
+scoreboard = Scoreboard()
+
+screen.listen()
+screen.onkey(player.crawl, "Up")
+
+
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    car_manager.drive()
+
+    if player.finish_check():
+        scoreboard.next_level()
+        #car_manager.speedup()
