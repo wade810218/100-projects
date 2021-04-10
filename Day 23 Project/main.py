@@ -24,15 +24,16 @@ while game_is_on:
     car_manager.create_car()
     car_manager.move_cars()
 
-
-    if player.finish_check():
-        scoreboard.next_level()
-        car_manager.speedup()
-
     #Detect collision with car    
     for car in car_manager.all_cars:
         if player.distance(car) < 20:
             print('Gameover')
             scoreboard.gameover()
             game_is_on = False
+
+    #Detect successful crossing
+    if player.finish_line_check():
+        player.go_to_start()
+        car_manager.speed_up()
+        scoreboard.next_level()
         
