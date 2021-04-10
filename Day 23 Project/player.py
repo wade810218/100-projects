@@ -11,17 +11,17 @@ class Player(Turtle):
         self.setheading(90)
         self.color('black')
         self.penup()
-        self.goto(STARTING_POSITION)
+        self.go_to_start()
 
     def crawl(self):
         self.forward(MOVE_DISTANCE)
     
-    # def next_level(self):
-    #     if self.ycor() >= FINISH_LINE_Y:
-    #         self.goto(STARTING_POSITION)
-    
-    def finish_check(self):
-        if self.ycor() >= FINISH_LINE_Y:
-            self.goto(STARTING_POSITION)
+    def go_to_start(self):
+        self.goto(STARTING_POSITION)
 
+    
+    def finish_line_check(self):
+        if self.ycor() >= FINISH_LINE_Y:
             return True
+        else:
+            False
