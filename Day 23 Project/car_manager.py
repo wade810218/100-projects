@@ -9,7 +9,7 @@ class CarManager(Turtle):
     def __init__(self):
         super().__init__()
         self.all_cars = []
-
+        self.car_speed = STARTING_MOVE_DISTANCE
 
     def create_car(self):
         random_chance = random.randint(1,6)
@@ -25,13 +25,8 @@ class CarManager(Turtle):
 
     def move_cars(self):
         for car in self.all_cars:
-            car.backward(STARTING_MOVE_DISTANCE)
+            car.backward(self.car_speed)
 
-    # def drive(self):
-    #     self.forward(STARTING_MOVE_DISTANCE)
+    def speed_up(self):
+        self.car_speed += MOVE_INCREMENT
 
-    def speedup(self):
-        global STARTING_MOVE_DISTANCE
-        STARTING_MOVE_DISTANCE += MOVE_INCREMENT
-    #  return STARTING_MOVE_DISTANCE += MOVE_INCREMENT
-    #it's global variable not suggest uset it in local score, try to use return method
