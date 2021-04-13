@@ -7,19 +7,19 @@ class Scoreboard(Turtle):
         super().__init__()
         self.hideturtle()
         self.penup()
-        self.goto(-270, 270)
+        self.goto(-270, 250)
         self.level = 1
-        self.current_level()
+        self.update_scoreboard()
 
 
-    def current_level(self):
+    def update_scoreboard(self):
         self.clear()
         self.write(f"Level: {self.level}", align="center", font=FONT)
 
     def next_level(self):
         self.level += 1
-        self.current_level()
+        self.update_scoreboard()
 
-    def gameover(self):
+    def game_over(self):
         self.goto(0,0)
         self.write("GAME OVER", align="center", font=FONT)
