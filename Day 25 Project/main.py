@@ -11,6 +11,7 @@ screen.addshape(image)
 turtle.shape(image)
 
 turtle_pen = turtle.Turtle()
+turtle.hideturtle()
 turtle_pen.penup()
 
 
@@ -30,26 +31,21 @@ def write_state(name):
     
 
 #5. Record the correct guesses in a list
-
-
 #6. Keep track of the score
-score = 0
-correct_guess = []
+
+guessed_states = []
 title = 'Guess the State'
 
 #4. Use a loop to allow the user to keep guessing
-# while True:
-
-#     if score > 0:
-#         title = f"{score}/50 States Correct"
-
-# #1. Convert the guess to Title classmethod
-#     answer_state = screen.textinput(title=title, prompt="What's another state's name?").title()
+while True:
+#1. Convert the guess to Title classmethod
+    answer_state = screen.textinput(title=f"{len(guessed_states)}/50 States Correct",
+                                    prompt="What's another state's name?").title()
       
-#     if check_guess(answer_state):
-#         score +=1 
-#         write_state(answer_state)
-#         correct_guess.append(answer_state)
+    if check_guess(answer_state):
+        
+        write_state(answer_state)
+        guessed_states.append(answer_state)
         
 
 print(turtle.position())
